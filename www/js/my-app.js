@@ -32,6 +32,27 @@ $$(document).on('deviceready', function() {
 		});
 	}
 
+	function relationship(typeOfReading){
+		var fullNameOne = $$('#fFullName').val();
+		var birthDateOne = $$('#fBirthDate').val();
+		var fullNameTwo = $$('#sFullName').val();
+		var birthDateTwo = $$('#sBirthDate').val();
+		var goodDateOne =  birthDateOne.split("-");
+		var goodDateTwo =  birthDateTwo.split("-");
+		var url = 'https://numerology.net/relphone.php?code='+typeOfReading+'|'+fullNameOne+'|'+goodDateOne[1]+'/'+goodDateOne[2]+'/'+goodDateOne[0]+'|'+fullNameTwo+'|'+goodDateTwo[1]+'/'+goodDateTwo[2]+'/'+goodDateTwo[0]+'|';
+		
+		$$.ajax({
+		  url: url,
+		  success: function(e){
+			  $$('#relationshipResponse').html(e);
+		  },
+		  error: function(e){
+			  alert('error');
+			  alert(url);
+		  }
+		});
+	}
+
 	$$('#submitDestiny').on('click',function(e){
 		processBasic('D','dResponse');
 	});
@@ -50,6 +71,10 @@ $$(document).on('deviceready', function() {
 	
 	$$('#submitPersonalYear').on('click',function(e){
 		processBasic('Y','pYResponse');
+	});
+	$$('#submitRelationship').on('click',function(e){
+		var radioValue = $$("input[name='type']:checked").val();
+		relationship(radioValue);
 	});
 
 function getGoodDate(date) {

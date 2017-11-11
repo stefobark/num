@@ -11,5 +11,73 @@
 */
 
 .statusbar-overlay {
-    background: #000000;
+    background: #fff;
+}
+
+.toggleDown {
+	margin-bottom:25px;
+	}
+
+.size-22 { font-size: 22px }
+.size-25 { font-size: 25px }
+.size-29 { font-size: 29px }
+.size-50 { font-size: 50px }
+.size-100 { font-size: 100px }
+.size-fill { font-size: 100% }
+
+#phi {
+	height:200px;
+	margin-top:20px;
+	}
+	
+#symbolContainer {
+	padding-top:50px;
+	text-align:center;
+	color:#4286f4;
+	}
+
+.numMachineTitle {
+	color:#666;
+	}
+
+.content-block {
+	background: white;
+	}
+
+.readingBlock {
+	background:white;
+	padding-right:10px;
+	padding-left:10px;
+	}
+
+@font-face {
+  font-family: 'Framework7 Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Framework7Icons-Regular.eot");
+  src: local('Framework7 Icons'),
+     local('Framework7Icons-Regular'),
+     url("../fonts/Framework7Icons-Regular.woff2") format("woff2"),
+     url("../fonts/Framework7Icons-Regular.woff") format("woff"),
+     url("../fonts/Framework7Icons-Regular.ttf") format("truetype");
+}
+
+.f7-icons, .framework7-icons {
+  font-family: 'Framework7 Icons';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
 }
