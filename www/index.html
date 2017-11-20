@@ -33,24 +33,33 @@
 </head>
 
 <body>
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding numMachineTitle">NUMEROLOGY MACHINE</div>
-                    <div class="right">
-                        <a href="#" class="link"><i class="f7-icons">home</i></a>
-                    </div>
-                </div>
-              </div>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=194119707798344';
+			  fjs.parentNode.insertBefore(js, fjs);
+	 	  }(document, 'script', 'facebook-jssdk'));
+	</script>
+	    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+	    <div class="statusbar-overlay"></div>
+	    <!-- Panels overlay-->
+	    <div class="panel-overlay"></div>
+	    <!-- Views -->
+	    <div class="views">
+		<!-- Your main view, should have "view-main" class -->
+		<div class="view view-main">
+		    <!-- Top Navbar-->
+		    <div class="navbar">
+		        <div class="navbar-inner">
+		            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+		            <div class="center sliding numMachineTitle">NUMEROLOGY MACHINE</div>
+		            <div class="right">
+		                <a href="#" class="link"><i class="f7-icons">home</i></a>
+		            </div>
+		        </div>
+		      </div>
 			  <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
 			  <div class="pages navbar-through toolbar-through">
 				 <!-- Page, "data-page" contains page name -->
@@ -58,6 +67,7 @@
 					<!-- Scrollable page content -->
 					<div class="page-content">
 					
+						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>
 						<div id="relationship" class="content-block accordion-item">
 							 <div id="symbolContainer">
 								<i style='font-size:100px'class="f7-icons">persons</i>
@@ -67,7 +77,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Looking for insight into a relationship? Try this reading!</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<div class="accordion-item-toggle"> Click to Begin.</div>
 								<ul  class="accordion-item-content">
 									 <li>
 										  <div class="item-content">
@@ -75,10 +85,10 @@
 											  <div class="item-title label">Select the attribute you would like to evaluate:</div>
 											  
 											  <div class="item-input">
-												  <label class="radio-inline"><input type="radio" name="type" value="B">Birth Force</label>
-												  <label class="radio-inline"><input type="radio" name="type" value="H">Heart's Desire</label>
-												  <label class="radio-inline"><input type="radio" name="type" value="D">Destiny</label>
-												  <label class="radio-inline"><input type="radio" name="type" value="P">Personal Year</label>
+												  <label class="radio"><input type="radio" name="type" value="B">Birth Force</label>
+												  <label class="radio"><input type="radio" name="type" value="H">Heart's Desire</label>
+												  <label class="radio"><input type="radio" name="type" value="D">Destiny</label>
+												  <label class="radio"><input type="radio" name="type" value="P">Personal Year</label>
 											  </div>
 										  </div>
 									</li>
@@ -139,7 +149,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Discover new ways of seeing yourself, your capabilities and overall destiny.</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<p class="accordion-item-toggle"> Click to Begin.</p>
 								<ul  class="accordion-item-content">
 								   <!-- Text inputs -->
 								   <li>
@@ -181,7 +191,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Learn about your deeper drives, motivations, and intentions.</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<p class="accordion-item-toggle"> Click to Begin.</p>
 								<ul class="accordion-item-content">
 								   <!-- Text inputs -->
 								   <li>
@@ -223,7 +233,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Insight into your personality type.</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<p class="accordion-item-toggle"> Click to Begin.</p>
 								<ul class="accordion-item-content">
 								   <!-- Text inputs -->
 								   <li>
@@ -265,7 +275,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Insight into the skills you possess, as well as any challenges you may need to overcome.</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<p class="accordion-item-toggle"> Click to Begin.</p>
 								<ul class="accordion-item-content">
 								   <!-- Text inputs -->
 								   <li>
@@ -307,7 +317,7 @@
 							 </div>
 							 <div class="list-block readingBlock">
 								<p>Your Personal Year number provides a snapshot of the upcoming or past calendar years, helping you adapt to and interpret events.</p>
-								<i class="f7-icons accordion-item-toggle toggleDown">chevron_down</i>
+								<p class="accordion-item-toggle"> Click to Begin.</p>
 								<ul class="accordion-item-content">
 								   <!-- Text inputs -->
 								   <li>
@@ -348,11 +358,33 @@
 			<div class="toolbar">
 				<div class="toolbar-inner">
 					<!-- Toolbar links -->
-					<a href="#" class="link">Numerology.net</a>
+					<a href="https://numerology.net" class="link">Numerology.net</a>
 				</div>
 			</div>
 		</div>
     <script type="text/javascript" src="cordova.js"></script>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '128735657793077',
+	      cookie     : true,
+	      xfbml      : true,
+	      version    : '2.11'
+	    });
+	      
+	    FB.AppEvents.logPageView();   
+	      
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
 </body>
