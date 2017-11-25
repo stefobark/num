@@ -8,7 +8,7 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.numerolgy.insight"
         }
     },
     "dependent_plugins": {},

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--
+  <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -10,383 +10,365 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' data: gap: 'unsafe-eval'; style-src * 'self' 'unsafe-inline'; connect-src * ; script-src * 'self' 'unsafe-inline'; media-src *">
-
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-
-    <!-- Your app title -->
-    <title>Numerolgy Machine</title>
-
-    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+  <!--<meta content="default-src * 'self' 'unsafe-inline' data: gap: 'unsafe-eval'; style-src * 'self' 'unsafe-inline'; connect-src * ; script-src * 'self' 'unsafe-inline'; media-src *" http-equiv="Content-Security-Policy"><!-- Required meta tags-->
+  -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta content="no" name="msapplication-tap-highlight"><!-- Your app title -->
+  <title>Numerolgy Machine</title><!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
-
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <link href="lib/framework7/css/framework7.ios.min.css" rel="stylesheet">
+  <link href="lib/framework7/css/framework7.ios.colors.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 </head>
-
 <body>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=194119707798344';
-			  fjs.parentNode.insertBefore(js, fjs);
-	 	  }(document, 'script', 'facebook-jssdk'));
-	</script>
-	    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-	    <div class="statusbar-overlay"></div>
-	    <!-- Panels overlay-->
-	    <div class="panel-overlay"></div>
-	    <!-- Views -->
-	    <div class="views">
-		<!-- Your main view, should have "view-main" class -->
-		<div class="view view-main">
-		    <!-- Top Navbar-->
-		    <div class="navbar">
-		        <div class="navbar-inner">
-		            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-		            <div class="center sliding numMachineTitle">NUMEROLOGY MACHINE</div>
-		            <div class="right">
-		                <a href="#" class="link"><i class="f7-icons">home</i></a>
-		            </div>
-		        </div>
-		      </div>
-			  <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-			  <div class="pages navbar-through toolbar-through">
-				 <!-- Page, "data-page" contains page name -->
-				 <div data-page="index" class="page">
-					<!-- Scrollable page content -->
-					<div class="page-content">
-					
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>
-						<div id="relationship" class="content-block accordion-item">
-							 <div id="symbolContainer">
-								<i style='font-size:100px'class="f7-icons">persons</i>
-							</div>
-							 <div class="content-block-title">
-								<h2>Relationship Reading</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Looking for insight into a relationship? Try this reading!</p>
-								<div class="accordion-item-toggle"> Click to Begin.</div>
-								<ul  class="accordion-item-content">
-									 <li>
-										  <div class="item-content">
-											  
-											  <div class="item-title label">Select the attribute you would like to evaluate:</div>
-											  
-											  <div class="item-input">
-												  <label class="radio"><input type="radio" name="type" value="B">Birth Force</label>
-												  <label class="radio"><input type="radio" name="type" value="H">Heart's Desire</label>
-												  <label class="radio"><input type="radio" name="type" value="D">Destiny</label>
-												  <label class="radio"><input type="radio" name="type" value="P">Personal Year</label>
-											  </div>
-										  </div>
-									</li>
-									<!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='fFullName' name='firstFullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='firstBirthDate' id='fBirthDate' placeholder="Your Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-									<li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='sFullName' name='secondFullName' placeholder="Another name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='secondBirthDate' id='sBirthDate' placeholder="The other birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitRelationship'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='relationshipResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-						  <div id="destiny" class="content-block accordion-item">
-							 <div id="symbolContainer">
-								<i style='font-size:100px'class="f7-icons">eye</i>
-							</div>
-							 <div class="content-block-title">
-								<h2>Destiny Number</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Discover new ways of seeing yourself, your capabilities and overall destiny.</p>
-								<p class="accordion-item-toggle"> Click to Begin.</p>
-								<ul  class="accordion-item-content">
-								   <!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='DfullName' name='DfullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='DbirthDate' id='DbirthDate' placeholder="Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitDestiny'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='dResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-						  <div id="heartsDesire" class="content-block accordion-item">
-							<div id="symbolContainer">
-								<i style='font-size:100px'class="f7-icons">heart</i>
-							</div> 
-							 <div class="content-block-title">
-								<h2>Heart's Desire</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Learn about your deeper drives, motivations, and intentions.</p>
-								<p class="accordion-item-toggle"> Click to Begin.</p>
-								<ul class="accordion-item-content">
-								   <!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='HfullName' name='HfullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='HbirthDate' id='HbirthDate' placeholder="Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitHearts'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='hResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-						  <div id="personality" class="content-block accordion-item">
-							  <div id="symbolContainer">
-								<i style='font-size:100px'class="f7-icons">person</i>
-							</div> 
-							 <div class="content-block-title">
-								<h2>Personality Number</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Insight into your personality type.</p>
-								<p class="accordion-item-toggle"> Click to Begin.</p>
-								<ul class="accordion-item-content">
-								   <!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='PfullName' name='PfullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='PbirthDate' id='PbirthDate' placeholder="Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitPersonality'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='pResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-						  <div id="birthForce" class="content-block accordion-item">
-							  <div id="symbolContainer">
-								<i style='font-size:100px'class="f7-icons">compass</i>
-							</div> 
-							 <div class="content-block-title">
-								<h2>Birth Force Number</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Insight into the skills you possess, as well as any challenges you may need to overcome.</p>
-								<p class="accordion-item-toggle"> Click to Begin.</p>
-								<ul class="accordion-item-content">
-								   <!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='BfullName' name='BfullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='BbirthDate' id='BbirthDate' placeholder="Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitBirthForce'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='bResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-						  <div id="personalYear" class="content-block accordion-item">
-							   <div id="symbolContainer">
-									<i style='font-size:100px'class="f7-icons">calendar</i>
-							</div> 
-							 <div class="content-block-title">
-								<h2>Personal Year Number</h2>
-							 </div>
-							 <div class="list-block readingBlock">
-								<p>Your Personal Year number provides a snapshot of the upcoming or past calendar years, helping you adapt to and interpret events.</p>
-								<p class="accordion-item-toggle"> Click to Begin.</p>
-								<ul class="accordion-item-content">
-								   <!-- Text inputs -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Full Name</div>
-										 <div class="item-input">
-											<input type="text" id='YfullName' name='YfullName' placeholder="Your name">
-										 </div>
-									  </div>
-								   </li>
-								   <!-- Date -->
-								   <li>
-									  <div class="item-content">
-										 <div class="item-title label">Birth Date</div>
-										 <div class="item-input">
-											<input type="date" name='YbirthDate' id='YbirthDate' placeholder="Birth day" value="2014-04-30">
-										 </div>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <button id='submitPersonalYear'>Submit</button>
-									  </div>
-								   </li>
-								   <li>
-									  <div class="item-content">
-										 <p id='pYResponse'></p>
-									  </div>
-								   </li>
-								</ul>
-							 </div>
-						  </div>
-					   </div>
-					</div>
-				 </div>
-			</div>
-			<!-- Bottom Toolbar-->
-			<div class="toolbar">
-				<div class="toolbar-inner">
-					<!-- Toolbar links -->
-					<a href="https://numerology.net" class="link">Numerology.net</a>
-				</div>
-			</div>
-		</div>
-    <script type="text/javascript" src="cordova.js"></script>
-
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '128735657793077',
-	      cookie     : true,
-	      xfbml      : true,
-	      version    : '2.11'
-	    });
-	      
-	    FB.AppEvents.logPageView();   
-	      
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "https://connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+  <!-- Status bar overlay for full screen mode (PhoneGap) -->
+  <div class="statusbar-overlay"></div><!-- Panels overlay-->
+  <div class="panel-overlay"></div><!-- Views -->
+  <div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+      <!-- Top Navbar-->
+      <div class="navbar">
+        <div class="navbar-inner">
+          <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+          <div class="center sliding numMachineTitle">
+            NUMEROLOGY MACHINE
+          </div>
+          <div class="right">
+            <a class="link" href="#"><i class="f7-icons">home</i></a>
+          </div>
+        </div>
+      </div><!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+      <div class="pages navbar-through toolbar-through">
+        <!-- Page, "data-page" contains page name -->
+        <div class="page" data-page="index">
+          <!-- Scrollable page content -->
+          <div class="page-content">
+            <div class="content-block accordion-item" id="relationship">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>persons</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Relationship Reading</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Looking for insight into a relationship? Try this reading!</p>
+                <div class="accordion-item-toggle">
+                  Click to Begin.
+                </div>
+                <ul class="accordion-item-content">
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Select Type:
+                      </div>
+                      <div class="item-input">
+                        <input name="type" type="radio" value="B">Birth Force<br>
+                        <input name="type" type="radio" value="H">Heart's Desire<br>
+                        <input name="type" type="radio" value="D">Destiny<br>
+                        <input name="type" type="radio" value="P">Personal Year
+                      </div>
+                    </div>
+                  </li><!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='fFullName' name='firstFullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='fBirthDate' name='firstBirthDate' placeholder="Your Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='sFullName' name='secondFullName' placeholder="Another name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='sBirthDate' name='secondBirthDate' placeholder="The other birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitRelationship'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='relationshipResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block accordion-item" id="destiny">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>eye</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Destiny Number</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Discover new ways of seeing yourself, your capabilities and overall destiny.</p>
+                <p class="accordion-item-toggle">Click to Begin.</p>
+                <ul class="accordion-item-content">
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='DfullName' name='DfullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='DbirthDate' name='DbirthDate' placeholder="Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitDestiny'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='dResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block accordion-item" id="heartsDesire">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>heart</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Heart's Desire</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Learn about your deeper drives, motivations, and intentions.</p>
+                <p class="accordion-item-toggle">Click to Begin.</p>
+                <ul class="accordion-item-content">
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='HfullName' name='HfullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='HbirthDate' name='HbirthDate' placeholder="Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitHearts'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='hResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block accordion-item" id="personality">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>person</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Personality Number</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Insight into your personality type.</p>
+                <p class="accordion-item-toggle">Click to Begin.</p>
+                <ul class="accordion-item-content">
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='PfullName' name='PfullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='PbirthDate' name='PbirthDate' placeholder="Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitPersonality'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='pResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block accordion-item" id="birthForce">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>compass</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Birth Force Number</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Insight into the skills you possess, as well as any challenges you may need to overcome.</p>
+                <p class="accordion-item-toggle">Click to Begin.</p>
+                <ul class="accordion-item-content">
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='BfullName' name='BfullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='BbirthDate' name='BbirthDate' placeholder="Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitBirthForce'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='bResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block accordion-item" id="personalYear">
+              <div id="symbolContainer">
+                <i class="f7-icons" style='font-size:100px'>calendar</i>
+              </div>
+              <div class="content-block-title">
+                <h2>Personal Year Number</h2>
+              </div>
+              <div class="list-block readingBlock">
+                <p>Your Personal Year number provides a snapshot of the upcoming or past calendar years, helping you adapt to and interpret events.</p>
+                <p class="accordion-item-toggle">Click to Begin.</p>
+                <ul class="accordion-item-content">
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Full Name
+                      </div>
+                      <div class="item-input">
+                        <input id='YfullName' name='YfullName' placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </li><!-- Date -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-title label">
+                        Birth Date
+                      </div>
+                      <div class="item-input">
+                        <input id='YbirthDate' name='YbirthDate' placeholder="Birth day" type="date" value="2014-04-30">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <button id='submitPersonalYear'>Submit</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <p id='pYResponse'></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- Bottom Toolbar-->
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <!-- Toolbar links -->
+        <a class="link" href="https://numerology.net">Numerology.net</a>
+      </div>
+    </div>
+  </div>
+  <script src="lib/framework7/js/framework7.min.js" type="text/javascript">
+  </script> 
+  <script src="js/my-app.js" type="text/javascript">
+  </script> 
+  <script src="cordova.js" type="text/javascript">
+  </script>
 </body>
-
 </html>
